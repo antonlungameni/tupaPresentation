@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TupaBloom Care Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A3D62; /* Deep Blue from logo/website theme */
+            --secondary-blue: #0E7CE3; /* Bright Blue for accents */
+            --text-color: #f7f7f7;
+            --bg-color: #1f2937; /* Dark Gray background */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1024px;
+            padding: 2rem 1rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            overflow-y: auto; /* Allows scrolling within a slide if content is too large */
+        }
+        .slide-title {
+            color: var(--secondary-blue);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        .slide-content {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            padding-left: 1rem;
+        }
+        .active {
+            display: flex;
+        }
+        .controls {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(31, 41, 55, 0.95);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+        .ctrl-btn {
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .ctrl-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        .next-btn {
+            background-color: var(--secondary-blue);
+            color: white;
+        }
+        .prev-btn {
+            background-color: #4B5563;
+            color: white;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        li::before {
+            content: '•';
+            color: var(--secondary-blue);
+            font-weight: 800;
+            position: absolute;
+            left: 0;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .slide-title {
+                font-size: 1.75rem;
+            }
+            .slide-content {
+                font-size: 1rem;
+            }
+            .ctrl-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="presentation" class="slide-container">
+    <!-- Slide 1: Title Slide -->
+    <div id="slide-1" class="slide active">
+        <div class="text-center w-full mb-8">
+            <img src="https://placehold.co/200x200/0A3D62/FFFFFF?text=TupaBloom+Logo" 
+                 alt="TupaBloom Care Logo" 
+                 class="mx-auto h-40 w-40 mb-6 rounded-xl"
+                 onerror="this.onerror=null; this.src='https://placehold.co/200x200/0A3D62/FFFFFF?text=TupaBloom+Care+Logo';">
+            <h1 class="slide-title text-4xl sm:text-6xl text-center text-white">TupaBloom Care</h1>
+            <p class="text-2xl sm:text-3xl font-light text-white mb-8">Empowering Youth Health and Rights in Namibia</p>
+        </div>
+        <div class="slide-content text-center w-full">
+            <p class="font-bold text-xl mb-4 text-white">Anton Lungameni</p>
+            <p class="text-lg text-gray-300">Representing TupaBloom Care on behalf of our founder, Dr. Tuwilika Nafuka.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Our Story -->
+    <div id="slide-2" class="slide">
+        <h2 class="slide-title">Our Story: From Advocacy to Innovation</h2>
+        <div class="slide-content">
+            <p class="mb-4">TupaBloom started as an **advocacy movement, not a business**, back in 2020.</p>
+            <p class="mb-4">Our initial focus was advocating for the creation of a **Sex Offenders Register (SOR)** for Namibia to address the handling of Sexual and Gender-Based Violence (SGBV).</p>
+            <ul class="mt-4">
+                <li>Cases involving children were **excluded** from the police clearance certificate.</li>
+                <li>This exclusion effectively treated children as **second-class citizens**, leading to cases going unrecorded and often forgotten.</li>
+                <li>The SOR call was born from this injustice: to strengthen accountability and create a digital record system that **preserves truth and enables justice**.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Why SOR Matters -->
+    <div id="slide-3" class="slide">
+        <h2 class="slide-title">Why a Sex Offenders Register Still Matters</h2>
+        <div class="slide-content">
+            <p class="font-bold mb-4 text-white">A digital SOR is essential because such systems globally and locally:</p>
+            <ul class="mt-4">
+                <li>**Deter Repeat Offenders** through consistent tracking.</li>
+                <li>Help law enforcement **identify patterns** and serial offenses.</li>
+                <li>Support **data collection** to understand the real scale of SGBV in Namibia.</li>
+            </ul>
+            <p class="mt-6 border-l-4 border-secondary-blue pl-4 italic text-gray-300">
+                The tragedy in Zambezi Region—where a fire destroyed paper case records—highlights why **digital systems** like an SOR are crucial. Paper records burn, but data can be protected, analyzed, and used to save lives.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 4: From Advocacy to TupaBloom Care -->
+    <div id="slide-4" class="slide">
+        <h2 class="slide-title">From Advocacy to TupaBloom Care</h2>
+        <div class="slide-content">
+            <p class="mb-4 text-white font-bold">Our work expanded from a single policy issue to a broader mission:</p>
+            <div class="text-center my-8 p-4 border-2 border-secondary-blue rounded-xl bg-gray-700 shadow-lg">
+                <p class="text-xl italic text-white">“To strengthen youth wellbeing through digital innovation, education, and advocacy.”</p>
+            </div>
+            <p class="mb-2">Today, TupaBloom Care operates as a youth-led social enterprise tackling key issues like:</p>
+            <ul class="mt-4 grid sm:grid-cols-2 gap-4">
+                <li>**Mental Health**</li>
+                <li>**Sexual and Reproductive Health and Rights (SRHR)**</li>
+                <li>**SGBV prevention**</li>
+                <li>**Digital health literacy**</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 5: Key Milestones and Advocacy -->
+    <div id="slide-5" class="slide">
+        <h2 class="slide-title">Key Milestones and Advocacy</h2>
+        <div class="slide-content">
+            <p class="mb-4">Our journey involved strategic policy engagement, including:</p>
+            <ul class="mt-4">
+                <li>Participation in the **Coalition to Reform Namibia’s Abortion Laws**.</li>
+                <li>Contributing **youth perspectives** on reproductive justice and bodily autonomy.</li>
+                <li>Building connections that power our current projects by blending **activism with action**.</li>
+            </ul>
+            <p class="mt-6 text-gray-300">
+                This foundation of advocacy informs every digital tool and educational campaign we launch today.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 6: What We Do Today -->
+    <div id="slide-6" class="slide">
+        <h2 class="slide-title">What We Do Today - Our Interconnected Projects</h2>
+        <div class="slide-content">
+            <p class="mb-4 font-bold text-white">TupaBloom Care runs several interconnected projects:</p>
+            <ul class="mt-4">
+                <li><strong class="text-secondary-blue">TupaCare:</strong> Namibia’s first dual **SRHR and Mental Health digital hub** for young adults.</li>
+                <li><strong class="text-secondary-blue">IANNA Community:</strong> An adolescent-focused space for **SRHR education** and rights advocacy.</li>
+                <li><strong class="text-secondary-blue">BloomBox Games:</strong> Our latest innovation—an educational card game using play to teach **life skills, mental health literacy, and advocacy**.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 7: Youth Campaigns and Outreach -->
+    <div id="slide-7" class="slide">
+        <h2 class="slide-title">Youth Campaigns and Outreach</h2>
+        <div class="slide-content">
+            <p class="mb-4">We are currently running the **“Know It, Own It” campaign** in universities and high schools using BloomBox Games to educate youth on:</p>
+            <ul class="mt-4 grid sm:grid-cols-2 gap-4">
+                <li>Mental health</li>
+                <li>Teenage pregnancy & reproductive rights</li>
+                <li>Human rights & inclusivity</li>
+                <li>SGBV laws</li>
+                <li>Self-advocacy</li>
+            </ul>
+            <p class="mt-6 border-l-4 border-secondary-blue pl-4 italic text-gray-300">
+                Educators say BloomBox helps them open conversations they previously avoided. Students call it “fun, relatable, and empowering.” We envision it supporting the Life Skills curriculum nationwide.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Our Impact So Far -->
+    <div id="slide-8" class="slide">
+        <h2 class="slide-title">Our Impact So Far</h2>
+        <div class="slide-content">
+            <p class="mb-4 text-white font-bold">The numbers and reach are growing:</p>
+            <ul class="mt-4">
+                <li>Our outreach has reached **hundreds of learners** and university students across several regions.</li>
+                <li>Online platforms (TupaCare) continue to provide **information, mental health tools, and safe digital spaces** for youth engagement.</li>
+            </ul>
+            <p class="mt-6 text-xl text-secondary-blue font-semibold">
+                Each conversation adds to our mission of making youth health **visible, inclusive, and digital**.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 9: Looking Ahead -->
+    <div id="slide-9" class="slide">
+        <h2 class="slide-title">Looking Ahead - Our Next Steps</h2>
+        <div class="slide-content">
+            <p class="mb-4 font-bold text-white">Our focus for the next phase includes:</p>
+            <ul class="mt-4">
+                <li>Scaling **BloomBox Games** to schools nationwide.</li>
+                <li>Launching the **digital version** of BloomBox.</li>
+                <li>Expanding **TupaCare’s** online reach and functionality.</li>
+                <li>Continuing our advocacy for **data-driven SGBV response systems**, including a fully digital Sex Offenders Register.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 10: Closing Message -->
+    <div id="slide-10" class="slide">
+        <h2 class="slide-title">Closing Message: Mission for the Future</h2>
+        <div class="slide-content text-center w-full">
+            <p class="mb-8 text-lg">TupaBloom Care began as one young woman’s fight for justice, but it’s grown into a collective of **innovators, advocates, and dreamers** who believe youth can shape the future of health and justice in Africa.</p>
+            <div class="text-center my-8 p-4 border-4 border-secondary-blue rounded-xl bg-gray-700 shadow-xl">
+                <p class="text-2xl text-white font-extrabold leading-tight">
+                    Our Mission: To make digital tools, youth voices, and data work together for healthier, safer, and more empowered communities.
+                </p>
+            </div>
+            <p class="text-xl font-bold mt-8 text-secondary-blue">Thank You.</p>
+            <p class="text-gray-400 text-sm mt-2">Find out more at: tupacare.com.na</p>
+        </div>
+    </div>
+
+    <!-- Slide 11: Campaign Strategy Generator (Gemini Feature) -->
+    <div id="slide-11" class="slide">
+        <h2 class="slide-title">✨ Spark a Strategy: Campaign Idea Generator</h2>
+        <div class="slide-content w-full">
+            <p class="mb-4 text-white">Use the Gemini AI tool to instantly draft a campaign idea aligned with TupaBloom's mission. Enter your objective below (e.g., "campaign to promote mental health literacy on campus").</p>
+
+            <textarea id="strategyInput" rows="3" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-secondary-blue focus:ring-secondary-blue focus:border-secondary-blue transition-colors mb-4" placeholder="Draft a campaign to..."></textarea>
+            
+            <button id="generateBtn" onclick="generateStrategy()" class="ctrl-btn next-btn w-full mb-6 flex items-center justify-center">
+                ✨ Generate Campaign Strategy
+            </button>
+
+            <div id="loadingIndicator" class="hidden text-center text-secondary-blue mb-4">
+                <svg class="animate-spin h-5 w-5 mr-3 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Generating idea...
+            </div>
+
+            <div id="strategyOutput" class="bg-gray-700 p-4 rounded-xl shadow-inner min-h-[150px] border border-gray-600 text-gray-200 whitespace-pre-wrap">
+                Generated strategy will appear here.
+            </div>
+
+            <div id="sourceAttribution" class="mt-4 text-xs text-gray-400"></div>
+
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <button id="prevBtn" class="ctrl-btn prev-btn" onclick="changeSlide(-1)" disabled>Previous (1/11)</button>
+    <button id="nextBtn" class="ctrl-btn next-btn" onclick="changeSlide(1)">Next</button>
+</div>
+
+<script>
+    let currentSlide = 0;
+    // Total slides updated to 11
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length; 
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const strategyInput = document.getElementById('strategyInput');
+    const strategyOutput = document.getElementById('strategyOutput');
+    const generateBtn = document.getElementById('generateBtn');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const sourceAttribution = document.getElementById('sourceAttribution');
+
+    // Helper for exponential backoff fetch
+    async function exponentialBackoffFetch(url, options, maxRetries = 5, delay = 1000) {
+        for (let i = 0; i < maxRetries; i++) {
+            try {
+                const response = await fetch(url, options);
+                if (response.status !== 429) { // Not a rate limit error, proceed or throw for other errors
+                    return response;
+                }
+                // Rate limit error (429), retry after delay
+            } catch (error) {
+                // Network error, retry
+            }
+            await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+        }
+        throw new Error("API request failed after multiple retries.");
+    }
+
+    // Gemini API Call Function
+    async function generateStrategy() {
+        const userQuery = strategyInput.value.trim();
+        if (!userQuery) {
+            strategyOutput.innerHTML = '<p class="text-red-400">Please enter an objective for the campaign.</p>';
+            return;
+        }
+
+        generateBtn.disabled = true;
+        loadingIndicator.classList.remove('hidden');
+        strategyOutput.textContent = '';
+        sourceAttribution.textContent = '';
+
+        const systemPrompt = "You are a strategic communications consultant for TupaBloom Care, a youth-led social enterprise in Namibia focused on health and rights (SRHR, Mental Health, SGBV). Your task is to generate a concise, actionable three-part strategy based on the user's objective. Structure your response clearly with bold headings for Theme, Target Audience, and Key Activities, ensuring the content is relevant to Namibian youth and TupaBloom's projects like BloomBox Games. Do not use markdown (e.g., #, *, -) in your final response; use clear, short paragraphs with simple line breaks.";
+        
+        const apiKey = "" 
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        const prompt = `Generate a campaign strategy for TupaBloom Care based on the following objective: "${userQuery}".`;
+
+        const payload = {
+            contents:
